@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 12 Sep, 2023 12:36:49 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="pojo.Order" table="order" catalog="shoe_store">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="shippingAddress" class="pojo.ShippingAddress" fetch="select">
+            <column name="sid" />
+        </many-to-one>
+        <many-to-one name="user" class="pojo.User" fetch="select">
+            <column name="uid" />
+        </many-to-one>
+        <property name="odate" type="string">
+            <column name="odate" length="100" />
+        </property>
+        <property name="total" type="java.lang.Double">
+            <column name="total" precision="22" scale="0" />
+        </property>
+        <property name="amount" type="java.lang.Double">
+            <column name="amount" precision="22" scale="0" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+        <property name="cancelorder" type="string">
+            <column name="cancelorder" length="100" />
+        </property>
+        <property name="discount" type="java.lang.Double">
+            <column name="discount" precision="22" scale="0" />
+        </property>
+        <property name="charge" type="java.lang.Double">
+            <column name="charge" precision="22" scale="0" />
+        </property>
+        <set name="sproducts" table="sproduct" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="oid" />
+            </key>
+            <one-to-many class="pojo.Sproduct" />
+        </set>
+    </class>
+</hibernate-mapping>

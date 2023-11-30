@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 12 Sep, 2023 12:36:49 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="pojo.Product" table="product" catalog="shoe_store">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="category" class="pojo.Category" fetch="select">
+            <column name="cid" />
+        </many-to-one>
+        <property name="pname" type="string">
+            <column name="pname" length="100" />
+        </property>
+        <property name="image1" type="string">
+            <column name="image1" length="300" />
+        </property>
+        <property name="image2" type="string">
+            <column name="image2" length="300" />
+        </property>
+        <property name="image3" type="string">
+            <column name="image3" length="300" />
+        </property>
+        <property name="image4" type="string">
+            <column name="image4" length="300" />
+        </property>
+        <property name="price" type="java.lang.Float">
+            <column name="price" precision="12" scale="0" />
+        </property>
+        <property name="dprice" type="java.lang.Float">
+            <column name="dprice" precision="12" scale="0" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="500" />
+        </property>
+        <property name="size" type="java.lang.Integer">
+            <column name="size" />
+        </property>
+        <property name="qty" type="java.lang.Integer">
+            <column name="qty" />
+        </property>
+        <property name="info" type="string">
+            <column name="info" length="500" />
+        </property>
+        <property name="availability" type="string">
+            <column name="availability" length="10" />
+        </property>
+        <set name="reviewses" table="reviews" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pid" />
+            </key>
+            <one-to-many class="pojo.Reviews" />
+        </set>
+        <set name="carts" table="cart" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pid" />
+            </key>
+            <one-to-many class="pojo.Cart" />
+        </set>
+        <set name="wishlists" table="wishlist" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pid" />
+            </key>
+            <one-to-many class="pojo.Wishlist" />
+        </set>
+    </class>
+</hibernate-mapping>

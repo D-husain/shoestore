@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory name="sf">
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.pool_size">1</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/shoe_store</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.search.autoregister_listeners">false</property>
+        <mapping class="pojo.Wishlist" />
+        <mapping class="pojo.Category" />
+        <mapping class="pojo.Reviews" />
+        <mapping class="pojo.Subscribe" />
+        <mapping class="pojo.Team" />
+        <mapping class="pojo.Slider" />
+        <mapping class="pojo.Contact" />
+        <mapping class="pojo.Order" />
+        <mapping class="pojo.Cart" />
+        <mapping class="pojo.Usercoupon" />
+        <mapping class="pojo.Coupon" />
+        <mapping class="pojo.Product" />
+        <mapping class="pojo.User" />
+        <mapping class="pojo.ShippingAddress" />
+        <mapping class="pojo.Sproduct" />
+        <mapping class="pojo.Admin" />
+        <mapping class="pojo.Cities" />
+        <mapping class="pojo.States" />
+        <mapping class="pojo.Zip" />
+        <mapping class="pojo.Countries" />
+    </session-factory>
+</hibernate-configuration>

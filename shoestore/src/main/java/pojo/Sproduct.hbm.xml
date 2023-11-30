@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 12 Sep, 2023 12:36:49 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="pojo.Sproduct" table="sproduct" catalog="shoe_store">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="order" class="pojo.Order" fetch="select">
+            <column name="oid" />
+        </many-to-one>
+        <property name="pid" type="string">
+            <column name="pid" length="1000" />
+        </property>
+        <property name="pname" type="string">
+            <column name="pname" length="300" />
+        </property>
+        <property name="price" type="string">
+            <column name="price" length="1000" />
+        </property>
+        <property name="qty" type="string">
+            <column name="qty" length="1000" />
+        </property>
+        <property name="total" type="string">
+            <column name="total" length="1000" />
+        </property>
+    </class>
+</hibernate-mapping>
